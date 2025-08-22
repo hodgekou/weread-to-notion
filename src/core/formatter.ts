@@ -102,7 +102,7 @@ export async function enhanceBookMetadata(
         // 使用阅读进度API的信息更新书籍状态
         const progress = progressInfo.book.progress || 0;
         const isStarted = progressInfo.book.isStartReading === 1;
-        const isFinished = progress >= 100;
+        const isFinished = progress >= 100 || progressInfo.book.finishTime > 0;
         
         // 更新阅读状态
         if (isFinished) {
